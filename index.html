@@ -1,293 +1,113 @@
-<!doctype html>
+  <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
   <title>Job For You Company</title>
-  <meta name="description" content="International recruitment & business services." />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="International recruitment & business services">
+
   <style>
-    :root{
-      --bg:#f5f7fb; --card:#ffffff; --text:#0f172a; --muted:#475569;
-      --brand:#0b5cff; --brand2:#003bba; --line:#e5e7eb;
-      --shadow: 0 10px 25px rgba(2, 8, 23, .08);
-      --radius: 18px;
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f4f6fb;
+      color:#222;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto; background:var(--bg); color:var(--text)}
     header{
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#fff; padding:44px 16px; text-align:center;
+      background:linear-gradient(135deg,#0b5cff,#003bba);
+      color:white;
+      text-align:center;
+      padding:50px 20px;
     }
-    header h1{margin:0;font-size:34px;letter-spacing:.2px}
-    header p{margin:10px 0 0; opacity:.95}
-    .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .topbar{
-      margin-top:-22px;background:rgba(255,255,255,.92);backdrop-filter: blur(8px);
-      border:1px solid var(--line); border-radius:999px; padding:10px; box-shadow:var(--shadow);
-      display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    header h1{margin:0;font-size:34px}
+    header p{margin-top:10px;font-size:18px}
+
+    .container{
+      max-width:900px;
+      margin:auto;
+      padding:20px;
     }
-    .lang{
-      display:flex; gap:8px; flex-wrap:wrap;
+    .box{
+      background:white;
+      border-radius:16px;
+      padding:20px;
+      margin-bottom:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
     }
-    .btn{
-      border:1px solid var(--line); background:#fff; color:var(--text);
-      padding:10px 12px; border-radius:999px; cursor:pointer; font-weight:700;
+    h2{margin-top:0;color:#0b5cff}
+
+    .buttons{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
     }
-    .btn.active{background:var(--brand); color:#fff; border-color:transparent}
-    .cta{
-      display:flex; gap:8px; flex-wrap:wrap;
+    .buttons a{
+      text-decoration:none;
+      padding:12px 16px;
+      border-radius:25px;
+      font-weight:bold;
+      background:#eee;
+      color:#000;
     }
-    .cta a{
-      text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px; border-radius:999px; font-weight:700; border:1px solid var(--line);
-      background:#fff; color:var(--text);
+    .buttons a.whatsapp{background:#16a34a;color:white}
+    .buttons a.email{background:#0b5cff;color:white}
+    .buttons a.call{background:#444;color:white}
+
+    footer{
+      text-align:center;
+      color:#666;
+      padding:20px;
+      font-size:14px;
     }
-    .cta a.primary{background:#16a34a; color:#fff; border-color:transparent}
-    .grid{display:grid; gap:14px; margin-top:16px}
-    @media(min-width:820px){ .grid{grid-template-columns:1.25fr .75fr} }
-    .card{
-      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:18px;
-    }
-    h2{margin:0 0 10px}
-    .muted{color:var(--muted); line-height:1.6}
-    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
-    .chip{background:#eef2ff; color:#1e3a8a; padding:8px 10px; border-radius:999px; font-weight:700; font-size:13px}
-    .list{margin:10px 0 0; padding:0 0 0 18px}
-    .list li{margin:8px 0; color:var(--muted)}
-    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px}
-    .kpi{border:1px dashed var(--line); border-radius:14px; padding:12px; text-align:center; background:#fafafa}
-    .kpi b{display:block; font-size:18px}
-    footer{padding:20px 16px; text-align:center; color:var(--muted)}
-    .rtl{direction:rtl; text-align:right}
-    .hide{display:none}
-    .small{font-size:13px}
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>Job For You Company</h1>
-  <p id="heroSub">Official Website</p>
+  <p>Official Website</p>
 </header>
 
-<div class="wrap">
-  <div class="topbar">
-    <div class="lang" aria-label="Language selector">
-      <button class="btn active" data-lang="fr">FR</button>
-      <button class="btn" data-lang="en">EN</button>
-      <button class="btn" data-lang="es">ES</button>
-      <button class="btn" data-lang="ar">AR</button>
-    </div>
+<div class="container">
 
-    <div class="cta">
-      <a class="primary" id="waLink" href="https://wa.me/212645410102" target="_blank" rel="noopener">WhatsApp</a>
-      <a id="mailLink" href="mailto:Ste.hihi.job.four.you@gmail.com">Email</a>
-      <a id="telLink" href="tel:+212645410102">Call</a>
-    </div>
+  <div class="buttons">
+    <a class="whatsapp" href="https://wa.me/212645410102" target="_blank">WhatsApp</a>
+    <a class="email" href="mailto:Ste.hihi.job.four.you@gmail.com">Email</a>
+    <a class="call" href="tel:+212645410102">Call</a>
   </div>
 
-  <div class="grid">
-    <section class="card" id="aboutCard">
-      <h2 id="aboutTitle">About us</h2>
-      <p class="muted" id="aboutText">
-        We provide international recruitment and business services.
-      </p>
-
-      <div class="chips" id="chips">
-        <span class="chip" id="chip1">International Recruitment</span>
-        <span class="chip" id="chip2">Business Services</span>
-        <span class="chip" id="chip3">Support & Consulting</span>
-      </div>
-
-      <div class="kpis">
-        <div class="kpi"><b id="kpi1">Global</b><span class="small" id="kpi1s">Coverage</span></div>
-        <div class="kpi"><b id="kpi2">Fast</b><span class="small" id="kpi2s">Response</span></div>
-        <div class="kpi"><b id="kpi3">Trusted</b><span class="small" id="kpi3s">Service</span></div>
-      </div>
-    </section>
-
-    <aside class="card" id="servicesCard">
-      <h2 id="servicesTitle">Services</h2>
-      <ul class="list" id="servicesList">
-        <li>Recruitment & candidate sourcing</li>
-        <li>International business support</li>
-        <li>Company & client coordination</li>
-        <li>Administrative & documentation help</li>
-      </ul>
-
-      <hr style="border:none;border-top:1px solid var(--line);margin:14px 0" />
-
-      <h2 id="contactTitle">Contact</h2>
-      <p class="muted" style="margin:0">
-        <b>Email:</b> <span id="emailText">Ste.hihi.job.four.you@gmail.com</span><br />
-        <b>Phone:</b> <span id="phoneText">+212 645 410 102</span>
-      </p>
-
-      <p class="muted small" id="note" style="margin-top:10px">
-        For inquiries, please contact us via WhatsApp or email.
-      </p>
-    </aside>
-  </div>
-
-  <section class="card" style="margin-top:14px" id="areasCard">
-    <h2 id="areasTitle">Our focus</h2>
-    <p class="muted" id="areasText">
-      Recruitment, business services, and international support for companies and individuals.
+  <div class="box">
+    <h2>About Us</h2>
+    <p>
+      We provide international recruitment and business services
+      for companies and individuals.
     </p>
-  </section>
+  </div>
+
+  <div class="box">
+    <h2>Services</h2>
+    <ul>
+      <li>International recruitment</li>
+      <li>Candidate sourcing & selection</li>
+      <li>Business & company support</li>
+      <li>Administrative assistance</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> Ste.hihi.job.four.you@gmail.com</p>
+    <p><strong>Phone:</strong> +212 645 410 102</p>
+    <p>Contact us via WhatsApp or email for any inquiry.</p>
+  </div>
 
 </div>
 
 <footer>
-  © <span id="year"></span> Job For You Company
+  © 2025 Job For You Company
 </footer>
 
-<script>
-  const year = new Date().getFullYear();
-  document.getElementById("year").textContent = year;
-
-  const dict = {
-    fr: {
-      dir: "ltr",
-      heroSub: "Site officiel",
-      aboutTitle: "À propos",
-      aboutText: "Nous proposons des services de recrutement international et des services aux entreprises.",
-      chip1: "Recrutement international",
-      chip2: "Services aux entreprises",
-      chip3: "Support & Conseil",
-      kpi1: "Global", kpi1s: "Couverture",
-      kpi2: "Rapide", kpi2s: "Réponse",
-      kpi3: "Fiable", kpi3s: "Service",
-      servicesTitle: "Services",
-      servicesList: [
-        "Recrutement & recherche de candidats",
-        "Support business international",
-        "Coordination clients & partenaires",
-        "Aide administrative & documents"
-      ],
-      contactTitle: "Contact",
-      note: "Pour toute demande, contactez-nous via WhatsApp ou email.",
-      areasTitle: "Notre mission",
-      areasText: "Recrutement, services business et accompagnement international pour entreprises et particuliers."
-    },
-    en: {
-      dir: "ltr",
-      heroSub: "Official Website",
-      aboutTitle: "About us",
-      aboutText: "We provide international recruitment and business services.",
-      chip1: "International Recruitment",
-      chip2: "Business Services",
-      chip3: "Support & Consulting",
-      kpi1: "Global", kpi1s: "Coverage",
-      kpi2: "Fast", kpi2s: "Response",
-      kpi3: "Trusted", kpi3s: "Service",
-      servicesTitle: "Services",
-      servicesList: [
-        "Recruitment & candidate sourcing",
-        "International business support",
-        "Client & partner coordination",
-        "Administrative & documentation help"
-      ],
-      contactTitle: "Contact",
-      note: "For inquiries, contact us via WhatsApp or email.",
-      areasTitle: "Our focus",
-      areasText: "Recruitment, business services, and international support for companies and individuals."
-    },
-    es: {
-      dir: "ltr",
-      heroSub: "Sitio oficial",
-      aboutTitle: "Sobre nosotros",
-      aboutText: "Ofrecemos reclutamiento internacional y servicios empresariales.",
-      chip1: "Reclutamiento internacional",
-      chip2: "Servicios empresariales",
-      chip3: "Soporte y consultoría",
-      kpi1: "Global", kpi1s: "Cobertura",
-      kpi2: "Rápido", kpi2s: "Respuesta",
-      kpi3: "Confiable", kpi3s: "Servicio",
-      servicesTitle: "Servicios",
-      servicesList: [
-        "Reclutamiento y búsqueda de candidatos",
-        "Soporte empresarial internacional",
-        "Coordinación con clientes y socios",
-        "Ayuda administrativa y documentación"
-      ],
-      contactTitle: "Contacto",
-      note: "Para consultas, contáctanos por WhatsApp o correo.",
-      areasTitle: "Nuestro enfoque",
-      areasText: "Reclutamiento, servicios empresariales y apoyo internacional para empresas y particulares."
-    },
-    ar: {
-      dir: "rtl",
-      heroSub: "الموقع الرسمي",
-      aboutTitle: "من نحن",
-      aboutText: "نقدم خدمات التوظيف الدولي وخدمات الأعمال للشركات والأفراد.",
-      chip1: "التوظيف الدولي",
-      chip2: "خدمات الأعمال",
-      chip3: "المواكبة والاستشارة",
-      kpi1: "عالمي", kpi1s: "انتشار",
-      kpi2: "سريع", kpi2s: "تجاوب",
-      kpi3: "موثوق", kpi3s: "خدمة",
-      servicesTitle: "خدماتنا",
-      servicesList: [
-        "التوظيف والبحث عن المرشحين",
-        "دعم الأعمال دولياً",
-        "تنسيق العملاء والشركاء",
-        "مساعدة إدارية ووثائق"
-      ],
-      contactTitle: "التواصل",
-      note: "لأي استفسار تواصل معنا عبر واتساب أو البريد الإلكتروني.",
-      areasTitle: "مجال عملنا",
-      areasText: "التوظيف، خدمات الأعمال، والمواكبة الدولية للشركات والأفراد."
-    }
-  };
-
-  function setLang(lang){
-    const d = dict[lang];
-    document.documentElement.lang = lang;
-    document.body.classList.toggle("rtl", d.dir === "rtl");
-
-    document.getElementById("heroSub").textContent = d.heroSub;
-    document.getElementById("aboutTitle").textContent = d.aboutTitle;
-    document.getElementById("aboutText").textContent = d.aboutText;
-
-    document.getElementById("chip1").textContent = d.chip1;
-    document.getElementById("chip2").textContent = d.chip2;
-    document.getElementById("chip3").textContent = d.chip3;
-
-    document.getElementById("kpi1").textContent = d.kpi1;
-    document.getElementById("kpi1s").textContent = d.kpi1s;
-    document.getElementById("kpi2").textContent = d.kpi2;
-    document.getElementById("kpi2s").textContent = d.kpi2s;
-    document.getElementById("kpi3").textContent = d.kpi3;
-    document.getElementById("kpi3s").textContent = d.kpi3s;
-
-    document.getElementById("servicesTitle").textContent = d.servicesTitle;
-    const ul = document.getElementById("servicesList");
-    ul.innerHTML = "";
-    d.servicesList.forEach(x=>{
-      const li = document.createElement("li");
-      li.textContent = x;
-      ul.appendChild(li);
-    });
-
-    document.getElementById("contactTitle").textContent = d.contactTitle;
-    document.getElementById("note").textContent = d.note;
-
-    document.getElementById("areasTitle").textContent = d.areasTitle;
-    document.getElementById("areasText").textContent = d.areasText;
-
-    document.querySelectorAll(".btn").forEach(b=>{
-      b.classList.toggle("active", b.dataset.lang === lang);
-    });
-  }
-
-  document.querySelectorAll(".btn").forEach(btn=>{
-    btn.addEventListener("click", ()=> setLang(btn.dataset.lang));
-  });
-
-  setLang("fr");
-</script>
-
 </body>
-</html>
+  </html>    
