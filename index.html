@@ -1,113 +1,522 @@
-  <!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Job For You Company</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="International recruitment & business services">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Job For You Company — International Services</title>
+  <meta name="description" content="International recruitment, global business services, real estate investment, construction, and import/export." />
 
   <style>
+    :root{
+      --bg: #0b1220;
+      --bg2:#0a0f1c;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.12);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.78);
+      --brand: #3b82f6;
+      --brand2:#22c55e;
+      --gold:#f5c542;
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 26px;
+    }
+    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: Arial, sans-serif;
-      background:#f4f6fb;
-      color:#222;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 15% 10%, rgba(59,130,246,.25), transparent 55%),
+        radial-gradient(900px 480px at 90% 20%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(800px 500px at 30% 90%, rgba(245,197,66,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
     }
+
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:22px}
+
+    /* Header */
     header{
-      background:linear-gradient(135deg,#0b5cff,#003bba);
-      color:white;
-      text-align:center;
-      padding:50px 20px;
+      position:relative;
+      padding:34px 0 18px;
     }
-    header h1{margin:0;font-size:34px}
-    header p{margin-top:10px;font-size:18px}
-
-    .container{
-      max-width:900px;
-      margin:auto;
-      padding:20px;
+    .hero{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      overflow:hidden;
     }
-    .box{
-      background:white;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(650px 240px at 25% 0%, rgba(59,130,246,.22), transparent 60%),
+        radial-gradient(560px 260px at 75% 20%, rgba(34,197,94,.18), transparent 60%);
+      pointer-events:none;
+      filter: blur(0px);
+    }
+    .heroInner{position:relative; display:flex; gap:18px; align-items:center; flex-wrap:wrap;}
+    .brand{
+      display:flex; gap:14px; align-items:center;
+      min-width:260px;
+    }
+    .logo{
+      width:58px;height:58px; flex:0 0 auto;
       border-radius:16px;
-      padding:20px;
-      margin-bottom:20px;
-      box-shadow:0 10px 25px rgba(0,0,0,.08);
+      border:1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(59,130,246,.25), rgba(34,197,94,.18));
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:grid; place-items:center;
     }
-    h2{margin-top:0;color:#0b5cff}
+    .title h1{margin:0;font-size:26px; letter-spacing:.2px}
+    .title p{margin:6px 0 0; color:var(--muted); line-height:1.45}
 
-    .buttons{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:20px;
+    .heroRight{
+      margin-left:auto;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
     }
-    .buttons a{
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(8px);
+    }
+    .pill b{font-size:13px}
+    .small{font-size:12px;color:var(--muted)}
+
+    /* Controls */
+    .topbar{
+      margin-top:14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center; justify-content:space-between;
+    }
+    .lang{
+      display:flex; gap:8px; flex-wrap:wrap;
+      padding:10px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+    }
+    button.btn{
+      appearance:none; border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    button.btn.active{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(34,197,94,.75));
+      box-shadow: 0 10px 25px rgba(59,130,246,.25);
+    }
+
+    .cta{
+      display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+    }
+    .cta a{
       text-decoration:none;
-      padding:12px 16px;
-      border-radius:25px;
-      font-weight:bold;
-      background:#eee;
-      color:#000;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      font-weight:800;
     }
-    .buttons a.whatsapp{background:#16a34a;color:white}
-    .buttons a.email{background:#0b5cff;color:white}
-    .buttons a.call{background:#444;color:white}
+    .cta a.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(59,130,246,.60));
+      box-shadow: 0 10px 25px rgba(34,197,94,.18);
+    }
+
+    /* Sections */
+    .grid{
+      margin-top:14px;
+      display:grid; gap:14px;
+    }
+    @media(min-width:900px){
+      .grid{grid-template-columns: 1.2fr .8fr;}
+    }
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .card h2{margin:0 0 10px; font-size:18px}
+    .muted{color:var(--muted); line-height:1.7}
+    .divider{height:1px;background:rgba(255,255,255,.12); border:0; margin:14px 0}
+
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-weight:800;
+      font-size:13px;
+    }
+    .chip.gold{
+      background: rgba(245,197,66,.12);
+      border-color: rgba(245,197,66,.18);
+    }
+
+    .list{margin:8px 0 0; padding:0 0 0 18px}
+    .list li{margin:8px 0; color:var(--muted)}
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .kpi{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:12px;
+      text-align:center;
+    }
+    .kpi b{display:block;font-size:16px}
+    .kpi span{display:block; margin-top:4px; font-size:12px; color:var(--muted)}
+
+    .two{
+      margin-top:14px;
+      display:grid; gap:14px;
+    }
+    @media(min-width:900px){
+      .two{grid-template-columns: 1fr 1fr;}
+    }
 
     footer{
+      padding:26px 16px;
       text-align:center;
-      color:#666;
-      padding:20px;
-      font-size:14px;
+      color:rgba(234,240,255,.65);
     }
+
+    /* RTL (Arabic) */
+    .rtl{direction:rtl; text-align:right}
+    .rtl .list{padding:0 18px 0 0}
   </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <header>
+      <div class="hero">
+        <div class="heroInner">
+          <div class="brand">
+            <div class="logo" aria-label="Job For You Company logo">
+              <!-- Globe logo (SVG) -->
+              <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="g1" x1="8" y1="8" x2="56" y2="56">
+                    <stop stop-color="#3b82f6"/>
+                    <stop offset="1" stop-color="#22c55e"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="32" cy="32" r="22" stroke="url(#g1)" stroke-width="3"/>
+                <path d="M10 32h44" stroke="rgba(234,240,255,.85)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M32 10c8 8 8 36 0 44" stroke="rgba(234,240,255,.75)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M32 10c-8 8-8 36 0 44" stroke="rgba(234,240,255,.75)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M16 20c6 3 26 3 32 0" stroke="rgba(234,240,255,.55)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M16 44c6-3 26-3 32 0" stroke="rgba(234,240,255,.55)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="title">
+              <h1 id="brandName">Job For You Company</h1>
+              <p id="brandTag">International Recruitment & Global Business Services</p>
+            </div>
+          </div>
 
-<header>
-  <h1>Job For You Company</h1>
-  <p>Official Website</p>
-</header>
+          <div class="heroRight">
+            <div class="pill"><b id="pill1">Worldwide</b> <span class="small" id="pill1s">Network</span></div>
+            <div class="pill"><b id="pill2">Professional</b> <span class="small" id="pill2s">Support</span></div>
+            <div class="pill"><b id="pill3">Reliable</b> <span class="small" id="pill3s">Partner</span></div>
+          </div>
+        </div>
+      </div>
 
-<div class="container">
+      <div class="topbar">
+        <div class="lang" aria-label="Language selector">
+          <button class="btn active" data-lang="fr">FR</button>
+          <button class="btn" data-lang="en">EN</button>
+          <button class="btn" data-lang="es">ES</button>
+          <button class="btn" data-lang="ar">AR</button>
+        </div>
 
-  <div class="buttons">
-    <a class="whatsapp" href="https://wa.me/212645410102" target="_blank">WhatsApp</a>
-    <a class="email" href="mailto:Ste.hihi.job.four.you@gmail.com">Email</a>
-    <a class="call" href="tel:+212645410102">Call</a>
+        <div class="cta">
+          <a class="primary" id="waLink" href="https://wa.me/212645410102" target="_blank" rel="noopener">WhatsApp</a>
+          <a id="mailLink" href="mailto:Ste.hihi.job.four.you@gmail.com">Email</a>
+          <a id="telLink" href="tel:+212645410102">Call</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card" id="aboutCard">
+        <h2 id="aboutTitle">À propos</h2>
+        <p class="muted" id="aboutText">
+          Job For You Company est une entreprise internationale spécialisée dans le recrutement international,
+          les services internationaux, l’investissement immobilier, la construction et les travaux,
+          ainsi que l’import-export. Nous accompagnons entreprises et particuliers avec une approche professionnelle,
+          confidentielle et orientée résultats.
+        </p>
+
+        <div class="chips">
+          <span class="chip gold" id="chip1">Recrutement International</span>
+          <span class="chip" id="chip2">Services Internationaux</span>
+          <span class="chip" id="chip3">Immobilier & Construction</span>
+          <span class="chip" id="chip4">Import / Export</span>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><b id="kpi1">Multi-pays</b><span id="kpi1s">Couverture</span></div>
+          <div class="kpi"><b id="kpi2">Rapide</b><span id="kpi2s">Réponse</span></div>
+          <div class="kpi"><b id="kpi3">Fiable</b><span id="kpi3s">Accompagnement</span></div>
+        </div>
+
+        <hr class="divider" />
+
+        <h2 id="regionsTitle">Zones d’intervention</h2>
+        <p class="muted" id="regionsText">
+          Europe, Canada, USA, Maroc, Asie, Pays du Golfe, Turquie, Royaume-Uni et Afrique.
+        </p>
+      </section>
+
+      <aside class="card" id="servicesCard">
+        <h2 id="servicesTitle">Nos services</h2>
+        <ul class="list" id="servicesList"></ul>
+
+        <hr class="divider" />
+
+        <h2 id="contactTitle">Contact</h2>
+        <p class="muted" style="margin:0">
+          <b id="emailLabel">Email:</b> <span id="emailText">Ste.hihi.job.four.you@gmail.com</span><br />
+          <b id="phoneLabel">Téléphone:</b> <span id="phoneText">+212 645 410 102</span>
+        </p>
+
+        <p class="muted small" id="note" style="margin-top:10px">
+          Pour toute demande, contactez-nous via WhatsApp ou email.
+        </p>
+      </aside>
+    </div>
+
+    <div class="two">
+      <section class="card" id="whyCard">
+        <h2 id="whyTitle">Pourquoi nous choisir ?</h2>
+        <ul class="list" id="whyList"></ul>
+      </section>
+
+      <section class="card" id="missionCard">
+        <h2 id="missionTitle">Notre mission</h2>
+        <p class="muted" id="missionText">
+          Offrir une solution internationale complète : recrutement, services business, investissement immobilier,
+          construction et import-export, avec un standard élevé de qualité, transparence et efficacité.
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      © <span id="year"></span> <span id="footerName">Job For You Company</span>
+    </footer>
   </div>
 
-  <div class="box">
-    <h2>About Us</h2>
-    <p>
-      We provide international recruitment and business services
-      for companies and individuals.
-    </p>
-  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <div class="box">
-    <h2>Services</h2>
-    <ul>
-      <li>International recruitment</li>
-      <li>Candidate sourcing & selection</li>
-      <li>Business & company support</li>
-      <li>Administrative assistance</li>
-    </ul>
-  </div>
+    const base = {
+      email: "Ste.hihi.job.four.you@gmail.com",
+      phone: "+212 645 410 102"
+    };
 
-  <div class="box">
-    <h2>Contact</h2>
-    <p><strong>Email:</strong> Ste.hihi.job.four.you@gmail.com</p>
-    <p><strong>Phone:</strong> +212 645 410 102</p>
-    <p>Contact us via WhatsApp or email for any inquiry.</p>
-  </div>
+    const dict = {
+      fr: {
+        dir: "ltr",
+        brandTag: "Recrutement international & services business mondiaux",
+        pill1:"Mondial", pill1s:"Réseau",
+        pill2:"Professionnel", pill2s:"Support",
+        pill3:"Fiable", pill3s:"Partenaire",
 
-</div>
+        aboutTitle:"À propos",
+        aboutText:"Job For You Company est une entreprise internationale spécialisée dans le recrutement international, les services internationaux, l’investissement immobilier, la construction et les travaux, ainsi que l’import-export. Nous accompagnons entreprises et particuliers avec une approche professionnelle, confidentielle et orientée résultats.",
+        chip1:"Recrutement International",
+        chip2:"Services Internationaux",
+        chip3:"Immobilier & Construction",
+        chip4:"Import / Export",
 
-<footer>
-  © 2025 Job For You Company
-</footer>
+        kpi1:"Multi-pays", kpi1s:"Couverture",
+        kpi2:"Rapide", kpi2s:"Réponse",
+        kpi3:"Fiable", kpi3s:"Accompagnement",
 
-</body>
-  </html>    
+        regionsTitle:"Zones d’intervention",
+        regionsText:"Europe, Canada, USA, Maroc, Asie, Pays du Golfe, Turquie, Royaume-Uni et Afrique.",
+
+        servicesTitle:"Nos services",
+        servicesList:[
+          "Recrutement international & sourcing de candidats",
+          "Mise en relation entreprises – talents – partenaires",
+          "Services internationaux & coordination business",
+          "Investissement immobilier & opportunités internationales",
+          "Construction, bâtiment & travaux (accompagnement et coordination)",
+          "Import / Export & services logistiques (assistance et suivi)"
+        ],
+
+        contactTitle:"Contact",
+        emailLabel:"Email:",
+        phoneLabel:"Téléphone:",
+        note:"Pour toute demande, contactez-nous via WhatsApp ou email.",
+
+        whyTitle:"Pourquoi nous choisir ?",
+        whyList:[
+          "Approche internationale et réseau multi-pays",
+          "Accompagnement sérieux, discret et professionnel",
+          "Communication claire et suivi rapide",
+          "Solutions sur mesure pour entreprises et particuliers"
+        ],
+
+        missionTitle:"Notre mission",
+        missionText:"Offrir une solution internationale complète : recrutement, services business, investissement immobilier, construction et import-export, avec un standard élevé de qualité, transparence et efficacité."
+      },
+
+      en: {
+        dir: "ltr",
+        brandTag: "International recruitment & global business services",
+        pill1:"Worldwide", pill1s:"Network",
+        pill2:"Professional", pill2s:"Support",
+        pill3:"Reliable", pill3s:"Partner",
+
+        aboutTitle:"About",
+        aboutText:"Job For You Company is an international company specialized in international recruitment, global services, real estate investment, construction support, and import/export. We support companies and individuals with a professional, confidential, results-driven approach.",
+        chip1:"International Recruitment",
+        chip2:"Global Services",
+        chip3:"Real Estate & Construction",
+        chip4:"Import / Export",
+
+        kpi1:"Multi-country", kpi1s:"Coverage",
+        kpi2:"Fast", kpi2s:"Response",
+        kpi3:"Trusted", kpi3s:"Support",
+
+        regionsTitle:"Coverage areas",
+        regionsText:"Europe, Canada, USA, Morocco, Asia, Gulf countries, Turkey, United Kingdom, and Africa.",
+
+        servicesTitle:"Services",
+        servicesList:[
+          "International recruitment & candidate sourcing",
+          "Connecting companies – talent – partners",
+          "International services & business coordination",
+          "Real estate investment & global opportunities",
+          "Construction & building support (coordination and follow-up)",
+          "Import/Export & logistics assistance (support and tracking)"
+        ],
+
+        contactTitle:"Contact",
+        emailLabel:"Email:",
+        phoneLabel:"Phone:",
+        note:"For inquiries, contact us via WhatsApp or email.",
+
+        whyTitle:"Why choose us?",
+        whyList:[
+          "International approach with multi-country network",
+          "Serious, discreet, professional support",
+          "Clear communication and fast follow-up",
+          "Tailored solutions for companies and individuals"
+        ],
+
+        missionTitle:"Our mission",
+        missionText:"Deliver a complete international solution: recruitment, business services, real estate investment, construction support, and import/export—with high standards of quality, transparency, and efficiency."
+      },
+
+      es: {
+        dir: "ltr",
+        brandTag: "Reclutamiento internacional y servicios empresariales globales",
+        pill1:"Global", pill1s:"Red",
+        pill2:"Profesional", pill2s:"Soporte",
+        pill3:"Confiable", pill3s:"Socio",
+
+        aboutTitle:"Sobre nosotros",
+        aboutText:"Job For You Company es una empresa internacional especializada en reclutamiento internacional, servicios globales, inversión inmobiliaria, apoyo a la construcción e importación/exportación. Apoyamos a empresas y particulares con un enfoque profesional, confidencial y orientado a resultados.",
+        chip1:"Reclutamiento Internacional",
+        chip2:"Servicios Globales",
+        chip3:"Inmobiliaria y Construcción",
+        chip4:"Importación / Exportación",
+
+        kpi1:"Multipaís", kpi1s:"Cobertura",
+        kpi2:"Rápido", kpi2s:"Respuesta",
+        kpi3:"Confiable", kpi3s:"Acompañamiento",
+
+        regionsTitle:"Zonas de cobertura",
+        regionsText:"Europa, Canadá, EE. UU., Marruecos, Asia, países del Golfo, Turquía, Reino Unido y África.",
+
+        servicesTitle:"Servicios",
+        servicesList:[
+          "Reclutamiento internacional y búsqueda de candidatos",
+          "Conexión empresas – talento – socios",
+          "Servicios internacionales y coordinación empresarial",
+          "Inversión inmobiliaria y oportunidades globales",
+          "Apoyo a construcción y obras (coordinación y seguimiento)",
+          "Import/Export y apoyo logístico (asistencia y seguimiento)"
+        ],
+
+        contactTitle:"Contacto",
+        emailLabel:"Email:",
+        phoneLabel:"Teléfono:",
+        note:"Para consultas, contáctanos por WhatsApp o correo.",
+
+        whyTitle:"¿Por qué elegirnos?",
+        whyList:[
+          "Enfoque internacional con red multipaís",
+          "Soporte serio, discreto y profesional",
+          "Comunicación clara y seguimiento rápido",
+          "Soluciones a medida para empresas y particulares"
+        ],
+
+        missionTitle:"Nuestra misión",
+        missionText:"Ofrecer una solución internacional completa: reclutamiento, servicios empresariales, inversión inmobiliaria, apoyo a la construcción e importación/exportación, con altos estándares de calidad, transparencia y eficiencia."
+      },
+
+      ar: {
+        dir: "rtl",
+        brandTag: "التوظيف الدولي والخدمات الدولية للأعمال",
+        pill1:"عالمي", pill1s:"شبكة",
+        pill2:"احترافي", pill2s:"دعم",
+        pill3:"موثوق", pill3s:"شريك",
+
+        aboutTitle:"من نحن",
+        aboutText:"Job For You Company شركة دولية متخصصة في التوظيف الدولي والخدمات الدولية، والاستثمار العقاري، والبناء والمقاولات، وكذلك الاستيراد والتصدير. نواكب الشركات والأفراد باحترافية وسرية وتركيز على النتائج.",
+        chip1:"التوظيف الدولي",
+        chip2:"الخدمات الدولية",
+        chip3:"العقار والبناء",
+        chip4:"استيراد / تصدير",
+
+        kpi1:"عدة دول", kpi1s:"تغطية",
+        kpi2:"سريع", kpi2s:"تجاوب",
+        kpi3:"موثوق", kpi3s:"مواكبة",
+
+        regionsTitle:"مجالات التغطية",
+        regionsText:"أوروبا، كندا، أمريكا، المغرب، آسيا، دول الخليج، تركيا، بريطانيا، وإفريقيا.",
+
+        servicesTitle:"خدماتنا",
+        servicesList:[
+          "التوظيف الدولي والبحث عن المرشحين",
+          "الربط بين الشركات والكفاءات والشركاء",
+          "خدمات دولية وتنسيق أعمال",
+          "الاستثمار العقاري وفرص دولية",
+          "مواكبة البناء والمقاولات (تنسيق وتتبع)",
+          "خدمات الاستيراد والتصدير والدعم اللوجستي (مساعدة وتتبع)"
+        ],
+
+        contactTitle:"التواصل",
+        emailLabel:"البريد:",
+        phoneLabel:"الهاتف:",
+        note:"لأي استفسار تواصل معنا عبر واتساب أو البريد الإ
